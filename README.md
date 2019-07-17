@@ -17,11 +17,15 @@
 
 1. Clone the repo
 
+```shell
 git clone https://github.com/talented/Sales-Records-API.git
+```
 
 2. Run
 
+```shell
 docker-compose up --build
+```
 
 3. Without stopping the running server open a new tab in your terminal and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
 
