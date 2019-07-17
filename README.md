@@ -4,9 +4,8 @@
 <p>The app is dockerized for easy installation. You need to run just a few commands to set it up. This is also a good example on how to configure Docker-Compose for a django app with postgresql database.</p>
 <p>I've used an open dataset for 2000 Sales records of 12 product types. The original dataset consists of 50000 records, so please let me know if you want to test out with a bigger database.</p>
 
-<!-- <div style="text-align:center"><p>First 10 records from the dataset</p></div> -->
-<!-- <div style="text-align:center"><img src ="./Screenshot.png" /></div> -->
-![Screenshot](./Screenshot.png "First 10 records from the dataset")
+<p align=center>First 10 records from the dataset</p>
+![Screenshot](./Screenshot.png)
 
 ## System Requirements
 
@@ -29,17 +28,21 @@ docker-compose up --build
 
 3. Without stopping the running server open a new tab in your terminal and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
 
-`docker cp init.sql apitest_db_1:/docker-entrypoint-initdb.d/init.sql`
+```shell
+docker cp init.sql apitest_db_1:/docker-entrypoint-initdb.d/init.sql
 
-`docker exec -u postgres apitest_db_1 psql postgres postgres -f docker-entrypoint-initdb.d/init.sql`
+docker exec -u postgres apitest_db_1 psql postgres postgres -f docker-entrypoint-initdb.d/init.sql
+```
 
 4. Check your browser that your API endpoint is ready at
 
-`localhost:8000/api/sales`
+```shell
+localhost:8000/api/sales
+```
 
 ## API filters
 
-> GET {website}/api/sales display a DRF List API view. Avaliable filter types are listed below:
+<p>GET {website}/api/sales display a DRF List API view. Avaliable filter types are listed below:<p>
 
 ### Filter by Field name
 
@@ -73,19 +76,27 @@ docker-compose up --build
 
 1. Show the number of quantity and total cost of sales before 1st of June 2015, broken down by channel and country, sorted by profit_percentage in descending order.
 
-> GET {website}/api/sales?groupby=country&groupby=channel&date_to=01.06.2015&ordering=-profit_percentage
+```shell
+GET {website}/api/sales?groupby=country&groupby=channel&date_to=01.06.2015&ordering=-profit_percentage
+```
 
 2. Show the total cost of products in May of 2017 on ptype, broken down by date, sorted by date in ascending order.
 
-> GET {website}/api/sales?groupby=ptype&groupby=date&date_from=01.03.2010&date_to=31.03.2010&ordering=date
+```shell
+GET {website}/api/sales?groupby=ptype&groupby=date&date_from=01.03.2010&date_to=31.03.2010&ordering=date
+```
 
 3. Show revenue, earned in 2015 in Europe region, broken down by country and sorted by revenue in descending order.
 
-> GET {website}/api/sales?region=Europe&groupby=country&date_from=01.01.2015&date_to=31.12.2015&ordering=-revenue
+```shell
+GET {website}/api/sales?region=Europe&groupby=country&date_from=01.01.2015&date_to=31.12.2015&ordering=-revenue
+```
 
 4. Show profit percentage for Turkey broken down by channel ordered by profit percentage in descending order.
 
-> GET {website}/api/sales?country=Turkey&groupby=channel&ordering=-profit_percentage
+```shell
+GET {website}/api/sales?country=Turkey&groupby=channel&ordering=-profit_percentage
+```
 
 ## TO DO
 
