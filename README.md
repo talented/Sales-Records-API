@@ -24,15 +24,19 @@ git clone https://github.com/talented/Sales-Records-API.git
 2. Run
 
 ```shell
-docker-compose up --build
+cd Sales-Records-Api
+
+docker-compose build
+
+docker-compose up
 ```
 
 3. Without stopping the running server open a new tab in your terminal and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
 
 ```shell
-docker cp init.sql apitest_db_1:/docker-entrypoint-initdb.d/init.sql
+docker cp init.sql sales-records-api_db_1:/docker-entrypoint-initdb.d/init.sql
 
-docker exec -u postgres apitest_db_1 psql postgres postgres -f docker-entrypoint-initdb.d/init.sql
+docker exec -u postgres sales-records-api_db_1 psql postgres postgres -f docker-entrypoint-initdb.d/init.sql
 ```
 
 4. Check your browser that your API endpoint is ready at
