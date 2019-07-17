@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+    app:
+        build: .
+        ports: 
+            - "8000:8000"
+        volumes:
+            - .:/app
+        command: >
+            sh -c "python /app/manage.py makemigrations &&
+                   python /app/manage.py migrate &&
+                   python /app/manage.py runserver 0.0.0.0:8000"
+            
+        environment:
+            - DB_HOST=db
+            - DB_NAME=postgres
+            - DB_USER=postgres
+            - DB_PASS=admin
+            - DB_PORT=5432
+
+        depends_on:
+            - db
+ 
+    db:
+        image: postgres:10-alpine
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=admin
+            - PGDATA=/tmp
+        ports:
+            - 5432
+        volumes:
+            - "./pgdata:/var/lib/postgresql/data/pgdata"
+            # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+        
+
+

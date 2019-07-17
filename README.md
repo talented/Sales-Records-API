@@ -1,42 +1,36 @@
 ## Description
 
-> Sales Records API endpoint with Django Rest Framework and Django Filters
+> This repo can be used as a reference when building advanced API filters with DRF and Postgresql.
+> The app is dockerized for easy installation. You need to run just a few commands to set it up. This is also a good example on how to configure Docker-Compose for a django app with postgresql database.
+> I've used an open dataset for 2000 Sales records of 12 product types. The original dataset consists of 50000 records, so please let me know if you want to test out with a bigger database.
+
+<div style="text-align:center"><p>First 10 records from the dataset</p></div>
+<div style="text-align:center"><img src ="./Screenshot.png" /></div>
 
 ## System Requirements
 
-- Python 3.6+
-- pip3
-- virtualenv
+- Docker
+- Docker Compose
 
-## Dependencies
+## Build instructions with Docker Compose
 
-<!-- > See [requirements.txt](https://github.com/talented/djangoAPI_task/blob/master/requirements.txt) for more information. -->
+1. Clone the repo
 
-## Build Instructions
+`git clone https://github.com/talented/Sales-Records-API.git`
 
-1. Create a virtual environment
+2. Run
 
-```
-(OSX)
-python3 -m venv .env
+`docker-compose up --build`
 
-(Linux)
-virtualenv .env
-```
+3. !!! without stopping the running server open a new tab in your terminal and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
 
-2. Activate virtual environment
+`docker cp init.sql apitest_db_1:/docker-entrypoint-initdb.d/init.sql`
 
-```
-. .venv/bin/Activate
-```
+`docker exec -u postgres apitest_db_1 psql postgres postgres -f docker-entrypoint-initdb.d/init.sql`
 
-3. Install modules by running 'requirements.txt'
+4. Check your browser that your API endpoint is ready at
 
-```
-pip3 install -r requirements.txt
-```
-
-4. Configure settings for postgresql database
+`localhost:8000/api/sales`
 
 ## API filters
 
@@ -87,3 +81,10 @@ pip3 install -r requirements.txt
 4. Show profit percentage for Turkey broken down by channel ordered by profit percentage in descending order.
 
 > GET {website}/api/sales?country=Turkey&groupby=channel&ordering=-profit_percentage
+
+## TO DO
+
+- [x] Dockerize the app
+- [ ] Deploy to AWS
+- [ ] Build a React or Vue Frontend to dynamically filter Sales data
+- [ ] Visualize filtered results with charts (D3.js can be used)
