@@ -17,13 +17,13 @@
 
 1. Clone the repo
 
-`git clone https://github.com/talented/Sales-Records-API.git`
+git clone https://github.com/talented/Sales-Records-API.git
 
 2. Run
 
-`docker-compose up --build`
+docker-compose up --build
 
-3. !!! without stopping the running server open a new tab in your terminal and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
+3. Without stopping the running server open a new tab in your terminal and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
 
 `docker cp init.sql apitest_db_1:/docker-entrypoint-initdb.d/init.sql`
 
