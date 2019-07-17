@@ -1,11 +1,12 @@
 ## Description
 
-> This repo can be used as a reference when building advanced API filters with DRF and Postgresql.
-> The app is dockerized for easy installation. You need to run just a few commands to set it up. This is also a good example on how to configure Docker-Compose for a django app with postgresql database.
-> I've used an open dataset for 2000 Sales records of 12 product types. The original dataset consists of 50000 records, so please let me know if you want to test out with a bigger database.
+<p>This repo can be used as a reference when building advanced API filters with DRF and Postgresql.</p>
+<p>The app is dockerized for easy installation. You need to run just a few commands to set it up. This is also a good example on how to configure Docker-Compose for a django app with postgresql database.</p>
+<p>I've used an open dataset for 2000 Sales records of 12 product types. The original dataset consists of 50000 records, so please let me know if you want to test out with a bigger database.</p>
 
-<div style="text-align:center"><p>First 10 records from the dataset</p></div>
-<div style="text-align:center"><img src ="./Screenshot.png" /></div>
+<!-- <div style="text-align:center"><p>First 10 records from the dataset</p></div> -->
+<!-- <div style="text-align:center"><img src ="./Screenshot.png" /></div> -->
+![Screenshot](./Screenshot.png "First 10 records from the dataset")
 
 ## System Requirements
 
