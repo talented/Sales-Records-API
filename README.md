@@ -5,6 +5,7 @@
 <p>I've used an open dataset for 2000 Sales records of 12 product types. The original dataset consists of 50000 records, so please let me know if you want to test out with a bigger database.</p>
 
 <p align=center>First 10 records from the dataset</p>
+
 ![Screenshot](Screenshot.png)
 
 ## System Requirements
