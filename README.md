@@ -31,7 +31,7 @@ docker-compose build
 docker-compose up
 ```
 
-3. Without stopping the running server open a new tab in your terminal and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
+3. Without stopping the running server open a new tab in your terminal, get into the same directory and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
 
 ```shell
 docker cp init.sql sales-records-api_db_1:/docker-entrypoint-initdb.d/init.sql
@@ -47,7 +47,7 @@ localhost:8000/api/sales
 
 ## API filters
 
-<p>GET {website}/api/sales display a DRF List API view. Avaliable filter types are listed below:<p>
+<p>GET {website}/api/sales display a DRF List API view. Available filter types are listed below:<p>
 
 ### Filter by Field name
 
