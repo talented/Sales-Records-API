@@ -1,7 +1,7 @@
 ## Description
 
-<p>This repo can be used as a reference when building advanced API filters with DRF and Postgresql.</p>
-<p>The app is dockerized for easy installation. You need to run just a few commands to set it up. This is also a good example on how to configure Docker-Compose for a django app with postgresql database.</p>
+<p>This repo can be used as a reference when building advanced API filters with DRF and PostgreSQL.</p>
+<p>The app is dockerized for easy installation. You need to run just a few commands to set it up. This is also a good example on how to configure Docker-Compose for a django app with postgreSQL database.</p>
 <p>I've used an open dataset for 2000 Sales records of 12 product types. The original dataset consists of 50000 records, so please let me know if you want to test out with a bigger database.</p>
 <br/>
 <p align=center><strong>First 10 records from the dataset</strong></p>
@@ -31,7 +31,7 @@ docker-compose build
 docker-compose up
 ```
 
-3. Without stopping the running server open a new tab in your terminal, get into the same directory and run commands below to populate the postgresql database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
+3. Without stopping the running server open a new tab in your terminal, get into the same directory and run commands below to populate the postgreSQL database in your running container with the data from "2000_Sales_Records.csv" under pgdata folder
 
 ```shell
 docker cp init.sql sales-records-api_db_1:/docker-entrypoint-initdb.d/init.sql
